@@ -1,0 +1,97 @@
+# Code Folder Extractor
+
+**Code Folder Extractor** is a Python utility that recursively scans a specified folder, reads code files with common programming extensions, and copies their content to the clipboard. It respects `.gitignore` rules and skips unreadable or non-code files.
+
+## 🔧 Features
+
+- ✅ Recursively scans directories
+- ✅ Detects common code file extensions
+- ✅ Skips files and folders defined in `.gitignore`
+- ✅ Handles decoding errors gracefully
+- ✅ Outputs total and skipped file counts
+- ✅ Copies result to clipboard automatically
+
+## 📁 Example Output
+
+```
+Total code files: 1
+Skipped files: 1
+
+=== main.py ===
+<file contents here>
+```
+
+## 🚀 Usage
+
+### 1. Requirements
+
+Make sure you have Python 3.6 or above installed.
+
+### 2. Install dependencies
+
+Use `pip` to install required packages:
+
+```bash
+pip install pathspec pyperclip
+```
+
+### 3. Run the script
+
+```bash
+python main.py
+```
+
+You'll be prompted to enter the **full path** to the folder you want to scan.
+
+### 4. Result
+
+- The combined contents of the detected code files will be copied to your clipboard.
+- You’ll see a summary showing how many files were processed or skipped.
+
+## 🧠 How It Works
+
+1. Loads `.gitignore` patterns using [`pathspec`](https://pypi.org/project/pathspec/)
+2. Recursively walks through the folder
+3. Checks file extensions and matches `.gitignore` rules
+4. Reads and aggregates the content of code files
+5. Uses [`pyperclip`](https://pypi.org/project/pyperclip/) to copy the result
+
+## 📄 Supported File Types
+
+Includes, but not limited to:
+
+- Programming: `.py`, `.js`, `.cpp`, `.java`, `.ts`, `.cs`, `.go`, `.rb`, `.php`, `.swift`, `.rs`, `.kt`
+- Markup/Styles: `.html`, `.css`, `.scss`, `.xml`, `.json`, `.yaml`, `.toml`
+- Configs: `.ini`, `.conf`, `.cfg`, `.sh`, `.bat`, `.ps1`, `.cmd`
+- Documentation: `.md`, `.txt`
+
+## 🧪 Example `.gitignore`
+
+```
+__pycache__/
+*.log
+*.tmp
+secret_config.py
+```
+
+## 🛠 Developer Notes
+
+- Uses `logging` for error tracking
+- Ignores files that are unreadable or cause `UnicodeDecodeError`
+- Adds trailing slash to directory names when checking `.gitignore`
+
+## 📎 Clipboard Note
+
+`pyperclip` works out of the box on most platforms. If it doesn’t, refer to [pyperclip docs](https://pyperclip.readthedocs.io/en/latest/) for system-specific setup tips.
+
+## 📬 Contributing
+
+Pull requests, bug reports, and improvements are welcome!
+
+## 📄 License
+
+MIT License. Feel free to use and modify.
+
+---
+
+**Created with ❤️ to simplify your developer workflow.**
